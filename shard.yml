@@ -1,0 +1,8 @@
+name: bigwig
+version: 0.0.0
+
+description: |
+  Native Crystal library for bigWig and bigBed.
+
+crystal: '>= 1.21.0'
+license: MIT
