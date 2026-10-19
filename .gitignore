@@ -1,0 +1,11 @@
+/lib/
+/.shards/
+/bin/
+/build/
+/docs/
+/.crystal/
+*.dwarf
+*.dSYM/
+__pycache__/
+*.pyc
+.DS_Store
