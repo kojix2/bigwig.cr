@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.21.0">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="bigwig">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="bigwig">
+  <title>BigWig::Internal::IOSource - bigwig main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          bigwig
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="bigwig/BigWig" data-name="bigwig">
+      <a href="../../BigWig.html">BigWig</a>
+      
+        <ul>
+  
+  <li class=" " data-id="bigwig/BigWig/BedEntry" data-name="bigwig::bedentry">
+      <a href="../../BigWig/BedEntry.html">BedEntry</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/ClosedError" data-name="bigwig::closederror">
+      <a href="../../BigWig/ClosedError.html">ClosedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Error" data-name="bigwig::error">
+      <a href="../../BigWig/Error.html">Error</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/FileType" data-name="bigwig::filetype">
+      <a href="../../BigWig/FileType.html">FileType</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/FormatError" data-name="bigwig::formaterror">
+      <a href="../../BigWig/FormatError.html">FormatError</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Header" data-name="bigwig::header">
+      <a href="../../BigWig/Header.html">Header</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/HTTPError" data-name="bigwig::httperror">
+      <a href="../../BigWig/HTTPError.html">HTTPError</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="bigwig/BigWig/Internal" data-name="bigwig::internal">
+      <a href="../../BigWig/Internal.html">Internal</a>
+      
+        <ul>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/BlockRef" data-name="bigwig::internal::blockref">
+      <a href="../../BigWig/Internal/BlockRef.html">BlockRef</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/Chromosome" data-name="bigwig::internal::chromosome">
+      <a href="../../BigWig/Internal/Chromosome.html">Chromosome</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/Cursor" data-name="bigwig::internal::cursor">
+      <a href="../../BigWig/Internal/Cursor.html">Cursor</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/FileSource" data-name="bigwig::internal::filesource">
+      <a href="../../BigWig/Internal/FileSource.html">FileSource</a>
+      
+    </li>
+  
+  <li class=" current" data-id="bigwig/BigWig/Internal/IOSource" data-name="bigwig::internal::iosource">
+      <a href="../../BigWig/Internal/IOSource.html">IOSource</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/Region" data-name="bigwig::internal::region">
+      <a href="../../BigWig/Internal/Region.html">Region</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/ZoomLevel" data-name="bigwig::internal::zoomlevel">
+      <a href="../../BigWig/Internal/ZoomLevel.html">ZoomLevel</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Internal/ZoomRecord" data-name="bigwig::internal::zoomrecord">
+      <a href="../../BigWig/Internal/ZoomRecord.html">ZoomRecord</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Interval" data-name="bigwig::interval">
+      <a href="../../BigWig/Interval.html">Interval</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/LimitError" data-name="bigwig::limiterror">
+      <a href="../../BigWig/LimitError.html">LimitError</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/RangeNotSupportedError" data-name="bigwig::rangenotsupportederror">
+      <a href="../../BigWig/RangeNotSupportedError.html">RangeNotSupportedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Reader" data-name="bigwig::reader">
+      <a href="../../BigWig/Reader.html">Reader</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/ReadOptions" data-name="bigwig::readoptions">
+      <a href="../../BigWig/ReadOptions.html">ReadOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/SourceChangedError" data-name="bigwig::sourcechangederror">
+      <a href="../../BigWig/SourceChangedError.html">SourceChangedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/UnsupportedError" data-name="bigwig::unsupportederror">
+      <a href="../../BigWig/UnsupportedError.html">UnsupportedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/WriteOptions" data-name="bigwig::writeoptions">
+      <a href="../../BigWig/WriteOptions.html">WriteOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="bigwig/BigWig/Writer" data-name="bigwig::writer">
+      <a href="../../BigWig/Writer.html">Writer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">
+    class
+  </span> BigWig::<wbr>Internal::<wbr>IOSource
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../BigWig/Internal/IOSource.html">BigWig::Internal::IOSource</a></li><li class="superclass">BigWig::Internal::Source</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>IO ownership is explicit; reads preserve the wrapped stream's position.
+A mutex makes interleaved cursors independent, including over IO::Memory.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kojix2/bigwig.cr/blob/e760992877658d63246f0cc72f17ec1a743ad483/src/bigwig/source.cr#L27" target="_blank">
+        bigwig/source.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28io%3AIO%2Csync_close%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(io : IO, sync_close : Bool = <span class="n">false</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+  
+
+  
+
+  
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#close%3ANil-instance-method" class="signature"><strong>#close</strong> : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#closed%3F%3ABool-instance-method" class="signature"><strong>#closed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#read_exact_at%28offset%3AInt64%2Cbuffer%3ABytes%29%3ANil-instance-method" class="signature"><strong>#read_exact_at</strong>(offset : Int64, buffer : Bytes) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3AInt64-instance-method" class="signature"><strong>#size</strong> : Int64</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <div class="methods-inherited">
+    
+      
+
+  <h3>Instance methods inherited from class <code>BigWig::Internal::Source</code></h3>
+  
+  
+    <a href="../../BigWig/Internal/Source.html#check_range%28offset%3AInt64%2Clength%3AInt%29%3ANil-instance-method" class="tooltip">
+      <span>check_range(offset : Int64, length : Int) : Nil</span>
+    check_range</a>, 
+    
+  
+    <a href="../../BigWig/Internal/Source.html#close%3ANil-instance-method" class="tooltip">
+      <span>close : Nil</span>
+    close</a>, 
+    
+  
+    <a href="../../BigWig/Internal/Source.html#closed%3F%3ABool-instance-method" class="tooltip">
+      <span>closed? : Bool</span>
+    closed?</a>, 
+    
+  
+    <a href="../../BigWig/Internal/Source.html#read%28offset%3AInt64%2Clength%3AInt%2Climit%3AInt32%29%3ABytes-instance-method" class="tooltip">
+      <span>read(offset : Int64, length : Int, limit : Int32) : Bytes</span>
+    read</a>, 
+    
+  
+    <a href="../../BigWig/Internal/Source.html#read_exact_at%28offset%3AInt64%2Cbuffer%3ABytes%29%3ANil-instance-method" class="tooltip">
+      <span>read_exact_at(offset : Int64, buffer : Bytes) : Nil</span>
+    read_exact_at</a>, 
+    
+  
+    <a href="../../BigWig/Internal/Source.html#size%3AInt64-instance-method" class="tooltip">
+      <span>size : Int64</span>
+    size</a>
+    
+  
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+    
+  </div>
+
+  
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(io:IO,sync_close:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(io : IO, sync_close : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new%28io%3AIO%2Csync_close%3ABool%3Dfalse%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/bigwig.cr/blob/e760992877658d63246f0cc72f17ec1a743ad483/src/bigwig/source.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+  
+
+  
+
+  
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="close:Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>close</strong> : Nil
+
+        <a class="method-permalink" href="#close%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/bigwig.cr/blob/e760992877658d63246f0cc72f17ec1a743ad483/src/bigwig/source.cr#L61" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="closed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>closed?</strong> : Bool
+
+        <a class="method-permalink" href="#closed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/bigwig.cr/blob/e760992877658d63246f0cc72f17ec1a743ad483/src/bigwig/source.cr#L42" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="read_exact_at(offset:Int64,buffer:Bytes):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>read_exact_at</strong>(offset : Int64, buffer : Bytes) : Nil
+
+        <a class="method-permalink" href="#read_exact_at%28offset%3AInt64%2Cbuffer%3ABytes%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/bigwig.cr/blob/e760992877658d63246f0cc72f17ec1a743ad483/src/bigwig/source.cr#L46" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong> : Int64
+
+        <a class="method-permalink" href="#size%3AInt64-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/bigwig.cr/blob/e760992877658d63246f0cc72f17ec1a743ad483/src/bigwig/source.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+</div>
+
+</body>
+</html>
